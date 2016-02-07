@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="index.js"></script>
+	<script>
+	var promise = new Promise(function(resolve, reject) {
+		// resolve(1);
+		reject('error');
+	});
+	var promise2 = function(data) {
+		return new Promise(function(resolve, reject) {
+			console.log(data);
+			reject('error');
+		});
+	};
+	promise.then(function(data) {
+		console.log(data);
+	}, function(err) {
+		console.log('ERR '+err);
+	}).then(function(data) {console.log(data);}, function(err) {
+		console.log(err);
+	});
+	</script>
+</body>
+</html>
